@@ -6,7 +6,7 @@ async function loadHTML(elementId, filePath) {
         return;
     }
 
-    const html = await response.text(); 
+    const html = await response.text();
 
     const element = document.getElementById(elementId);
     if (element) {

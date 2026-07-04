@@ -6,15 +6,24 @@ body {
     padding-top: 16px;
     padding-bottom: 64px;
 }
+
 h1 {
     color: black;
 }
+
 p {
     color: black;
 }
+
+header {
+    position: sticky;
+    width: 100%;
+}
+
 canvas {
     background: red;
-    border:black;
+    border: black;
+    width: 100%;
     outline-style: solid;
     outline_color: invert;
     padding: 5px;
