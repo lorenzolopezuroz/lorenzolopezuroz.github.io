@@ -6,7 +6,7 @@ uniform float uTime;
 
 out vec4 fragColor;
 
-const float l = 2.0;
+const float l = 8.0;
 
 vec3 random3(vec3 st) {
     vec3 p = vec3(
@@ -34,8 +34,8 @@ float worley(vec3 x) {
 }
 
 void main() {
-    vec2 uv = gl_FragCoord.xy / uResolution;
+    vec2 uv = gl_FragCoord.xy / uResolution * l;
     vec3 p = vec3(uv.x, uv.y, uTime);
-    vec3 color = worley(p);
+    vec3 color = vec3(worley(p));
     fragColor = vec4(color, 1.0);
 }
