@@ -23,9 +23,8 @@ header {
     grid-column: 3;
 }
 
-canvas {
-    background: red;
-    border: black;
-    outline-style: solid;
-    padding: 5px;
+.background_shader {
+    display: block;
+    width: 100vw;
+    height: 100vh;
 }
