@@ -1,0 +1,21 @@
+body {
+    background: white;
+    font-family: 'Trebuchet MS', sans-serif;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 16px;
+    padding-bottom: 64px;
+}
+h1 {
+    color: black;
+}
+p {
+    color: black;
+}
+canvas {
+    background: red;
+    border:black;
+    outline-style: solid;
+    outline_color: invert;
+    padding: 5px;
+}
