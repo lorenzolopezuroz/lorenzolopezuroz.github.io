@@ -22,6 +22,7 @@ export async function initShader(canvasId, vertexUrl, fragmentUrl) {
     gl.useProgram(program);
 
     const uResolution = gl.getUniformLocation(program, 'uResolution');
+    const uMouse = gl.getUniformLocation(program, 'uMouse');
     const uTime = gl.getUniformLocation(program, 'uTime');
 
     const vao = gl.createVertexArray();
@@ -36,8 +37,18 @@ export async function initShader(canvasId, vertexUrl, fragmentUrl) {
     window.addEventListener('resize', resize);
     resize();
 
+    let mouseX = 0;
+    let mouseY = 0;
+    canvas.addEventListener('mousemove', (event) => {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        mouseX = (event.clientX - rect.left) * dpr;
+        mouseY = (rect.height - (event.clientY - rect.top)) * dpr;
+    });
+
     function render(timeMs) {
         gl.uniform2f(uResolution, canvas.width, canvas.height);
+        gl.uniform2f(uMouse, mouseX, mouseY);
         gl.uniform1f(uTime, timeMs * 0.001);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
         requestAnimationFrame(render);
